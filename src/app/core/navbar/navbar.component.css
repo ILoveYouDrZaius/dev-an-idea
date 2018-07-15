@@ -1,0 +1,14 @@
+mat-toolbar {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+}
+
+span.spacer {
+    flex: 1;
+}
+
+.mat-toolbar.mat-primary {
+    background: rgb(70, 70, 70);
+    color: #fff;
+}
