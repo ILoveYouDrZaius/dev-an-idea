@@ -27,13 +27,15 @@ import {
 })
 export class IdeasComponent implements OnInit {
 
-  state: string;
+  ideasState: string;
+  loaderState: string;
   ideas: Idea[];
   ideasCharged: boolean;
 
   constructor(private ideasService: IdeasService) {
     console.log('Constructor ideas component');
-    this.state = 'inactive';
+    this.ideasState = 'inactive';
+    this.loaderState = 'active';
   }
 
   ngOnInit() {
@@ -46,8 +48,7 @@ export class IdeasComponent implements OnInit {
   }
 
   toggleState() {
-    console.log('toggleState()');
-    this.state = this.state === 'active' ? 'inactive' : 'active';
-    console.log(this.state);
+    this.ideasState = this.ideasState === 'active' ? 'inactive' : 'active';
+    this.loaderState = this.loaderState === 'active' ? 'inactive' : 'active';
   }
 }

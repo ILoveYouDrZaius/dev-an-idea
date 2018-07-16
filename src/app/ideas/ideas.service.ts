@@ -40,7 +40,15 @@ export class IdeasService {
 
   getIdeas(): Observable<Idea[]> {
     return of(IDEAS).pipe(
-      delay(2000),
+      delay(2000)
+    );
+  }
+
+  getIdea(id: number): Observable<Idea> {
+    const result = IDEAS.filter(idea => idea.id === 1);
+
+    return of(result[0]).pipe(
+      delay(2200)
     );
   }
 

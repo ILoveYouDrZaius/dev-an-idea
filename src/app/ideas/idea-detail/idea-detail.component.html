@@ -1,6 +1,8 @@
-<div class="loading-indicator" [@ideasState] = "loaderState">
-  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
+<div class="loading-indicator">
+  <mat-progress-spinner mode="indeterminate" *ngIf="!ideasCharged"></mat-progress-spinner>
 </div>
+
+<h3>DETAIL COMPONENT</h3>
 
 <div class="grid-container" [@ideasState]="ideasState">
   <mat-card class="example-card grid-item" *ngFor="let idea of ideas">
