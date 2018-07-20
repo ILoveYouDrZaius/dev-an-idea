@@ -1,11 +1,9 @@
-<div class="loading-indicator">
-  <mat-progress-spinner mode="indeterminate" *ngIf="!ideasCharged"></mat-progress-spinner>
+<div class="loading-indicator" [@ideaState] = "loaderState">
+  <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>
 
-<h3>DETAIL COMPONENT</h3>
-
-<div class="grid-container" [@ideasState]="ideasState">
-  <mat-card class="example-card grid-item" *ngFor="let idea of ideas">
+<div class="grid-container" [@ideaState]="ideaState">
+  <mat-card class="example-card grid-item">
     <mat-card-header class="mat-card-header">
       <mat-card-title>{{ idea.name }}</mat-card-title>
       <mat-card-subtitle>{{ idea.tags }}</mat-card-subtitle>

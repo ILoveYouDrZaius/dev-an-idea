@@ -48,7 +48,7 @@ export class IdeasService {
     const result = IDEAS.filter(idea => idea.id === 1);
 
     return of(result[0]).pipe(
-      delay(2200)
+      delay(1400)
     );
   }
 

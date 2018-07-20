@@ -30,7 +30,6 @@ export class IdeasComponent implements OnInit {
   ideasState: string;
   loaderState: string;
   ideas: Idea[];
-  ideasCharged: boolean;
 
   constructor(private ideasService: IdeasService) {
     console.log('Constructor ideas component');
@@ -39,10 +38,8 @@ export class IdeasComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ideasCharged = false;
     this.ideasService.getIdeas().subscribe((ideas) => {
       this.ideas = ideas;
-      this.ideasCharged = true;
       this.toggleState();
     });
   }
