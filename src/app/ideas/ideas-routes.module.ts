@@ -13,7 +13,13 @@ const routes: Routes = [
         path: '',
         pathMatch: 'full',
         component: IdeasComponent
-      },
+      }
+    ]
+  },
+  {
+    path: 'idea',
+    // component: IdeasComponent,
+    children: [
       {
         path: ':id',
         component: IdeaDetailComponent
