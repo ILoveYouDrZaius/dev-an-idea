@@ -51,8 +51,8 @@ export class IdeasService {
     );
   }
 
-  getIdeasF() {
-    this.db.collection('ideas');
+  getIdeasF(): Observable<Idea[]> {
+    return this.db.collection<Idea>('ideas').valueChanges();
   }
 
   getIdea(id: number): Observable<Idea> {
@@ -61,6 +61,10 @@ export class IdeasService {
     return of(result[0]).pipe(
       delay(1400)
     );
+  }
+
+  getIdeaF(id: number): Observable<Idea> {
+    return this.db.doc<Idea>(`ideas/${id}`).valueChanges();
   }
 
 }

@@ -26,11 +26,20 @@ export class IdeaDetailComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ideaService.getIdea(this.idIdea)
-      .subscribe((idea) => {
-        this.idea = idea;
+    // this.ideaService.getIdea(this.idIdea)
+    //   .subscribe((idea) => {
+    //     this.idea = idea;
+    //     this.toggleState();
+    //   });
+    let firstCharge = true;
+    this.ideaService.getIdeaF(this.idIdea).subscribe((idea) => {
+      this.idea = idea;
+
+      if (firstCharge) {
         this.toggleState();
-      });
+        firstCharge = false;
+      }
+    });
   }
 
   toggleState() {

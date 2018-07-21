@@ -20,12 +20,20 @@ export class IdeasComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.ideasService.getIdeas().subscribe((ideas) => {
+    // this.ideasService.getIdeas().subscribe((ideas) => {
+    //   this.ideas = ideas;
+    //   this.toggleState();
+    // });
+    let firstCharge = true;
+    this.ideasService.getIdeasF().subscribe((ideas) => {
       this.ideas = ideas;
-      this.toggleState();
-    });
 
-    this.ideasService.getIdeasF();
+      if (firstCharge) {
+        this.toggleState();
+        firstCharge = false;
+      }
+
+    });
   }
 
   toggleState() {
