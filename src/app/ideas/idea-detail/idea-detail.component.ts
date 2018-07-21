@@ -1,24 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { IdeasService, Idea } from '../ideas.service';
-import { trigger, state, style, transition, animate } from '@angular/animations';
+import { stateAnimation } from '../../animations';
 
 @Component({
   selector: 'app-idea-detail',
   templateUrl: './idea-detail.component.html',
   styleUrls: ['./idea-detail.component.css'],
-  animations: [
-    trigger('ideaState', [
-      state('inactive', style({
-        opacity: 0
-      })),
-      state('active',   style({
-        opacity: 100
-      })),
-      transition('inactive => active', animate('0.2s ease-in')),
-      transition('active => inactive', animate('0.2s ease-out'))
-    ])
-  ]
+  animations: [stateAnimation]
 })
 export class IdeaDetailComponent implements OnInit {
 

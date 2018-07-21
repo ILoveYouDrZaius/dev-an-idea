@@ -1,8 +1,8 @@
-<div class="loading-indicator" [@ideaState] = "loaderState">
+<div class="loading-indicator" [@state] = "loaderState">
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>
 
-<div class="grid-container" [@ideaState]="ideaState">
+<div class="grid-container" *ngIf="ideaState=='active'" [@state]="ideaState">
   <mat-card class="example-card grid-item">
     <mat-card-header class="mat-card-header">
       <mat-card-title>{{ idea.name }}</mat-card-title>

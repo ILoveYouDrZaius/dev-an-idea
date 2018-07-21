@@ -13,15 +13,16 @@ import {
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
   animations: [
-    trigger('myAwesomeAnimation', [
-      state('small', style({
-          transform: 'scale(1)',
+    trigger('state', [
+      state('inactive', style({
+        opacity: 0
       })),
-      state('large', style({
-          transform: 'scale(1.2)',
+      state('active',   style({
+        opacity: 100
       })),
-      transition('small => large', animate('100ms ease-in')),
-  ]),
+      transition('inactive => active', animate('0.2s ease-in')),
+      transition('active => inactive', animate('0.2s ease-out'))
+    ])
   ]
 })
 export class AppComponent {

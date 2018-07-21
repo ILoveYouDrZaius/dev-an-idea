@@ -1,29 +1,12 @@
 import { IdeasService, Idea } from './ideas.service';
 import { Component, OnInit } from '@angular/core';
-import {
-  trigger,
-  state,
-  style,
-  animate,
-  transition
-} from '@angular/animations';
+import { stateAnimation } from '../animations';
 
 @Component({
   selector: 'app-ideas',
   templateUrl: './ideas.component.html',
   styleUrls: ['./ideas.component.css'],
-  animations: [
-    trigger('ideasState', [
-      state('inactive', style({
-        opacity: 0
-      })),
-      state('active',   style({
-        opacity: 100
-      })),
-      transition('inactive => active', animate('0.2s ease-in')),
-      transition('active => inactive', animate('0.2s ease-out'))
-    ])
-  ]
+  animations : [stateAnimation]
 })
 export class IdeasComponent implements OnInit {
 

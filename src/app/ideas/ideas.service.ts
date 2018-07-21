@@ -28,6 +28,12 @@ const IDEAS: Idea[] = [
     name: 'OtraIdea',
     description: 'Aplicación que haga algo. Aún no se ha decidido qué',
     tags: ['indecisión']
+  },
+  {
+    id: 4,
+    name: 'InventarioJuntaTrocola',
+    description: 'Aplicación para la gestión de inventarios de juntas de trócola. Actualmente es un mercado muy abandonado',
+    tags: ['mecanica', 'sci-fi']
   }
 ];
 

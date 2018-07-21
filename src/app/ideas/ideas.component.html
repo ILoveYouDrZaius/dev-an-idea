@@ -1,8 +1,8 @@
-<div class="loading-indicator" [@ideasState] = "loaderState">
+<div class="loading-indicator" [@state] = "loaderState">
   <mat-progress-spinner mode="indeterminate"></mat-progress-spinner>
 </div>
 
-<div class="grid-container" [@ideasState]="ideasState">
+<div class="grid-container" [@state]="ideasState">
   <mat-card class="example-card grid-item" *ngFor="let idea of ideas">
     <mat-card-header class="mat-card-header">
       <mat-card-title>
