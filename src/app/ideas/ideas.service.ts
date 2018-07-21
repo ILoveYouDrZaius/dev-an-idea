@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { delay } from 'rxjs/operators';
+import { AngularFirestore } from 'angularfire2/firestore';
 
 
 export interface Idea {
@@ -42,12 +43,16 @@ const IDEAS: Idea[] = [
 })
 export class IdeasService {
 
-  constructor() {}
+  constructor(private db: AngularFirestore) {}
 
   getIdeas(): Observable<Idea[]> {
     return of(IDEAS).pipe(
       delay(2000)
     );
+  }
+
+  getIdeasF() {
+    this.db.collection('ideas');
   }
 
   getIdea(id: number): Observable<Idea> {

@@ -15,7 +15,6 @@ export class IdeasComponent implements OnInit {
   ideas: Idea[];
 
   constructor(private ideasService: IdeasService) {
-    console.log('Constructor ideas component');
     this.ideasState = 'inactive';
     this.loaderState = 'active';
   }
@@ -25,6 +24,8 @@ export class IdeasComponent implements OnInit {
       this.ideas = ideas;
       this.toggleState();
     });
+
+    this.ideasService.getIdeasF();
   }
 
   toggleState() {
