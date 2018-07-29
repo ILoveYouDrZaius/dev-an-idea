@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import {
   MatIconModule,
+  MatButtonModule,
   MatCardModule,
   MatProgressSpinnerModule
 } from '@angular/material';
@@ -9,6 +10,7 @@ import {
 const materialModules = [
     MatToolbarModule,
     MatIconModule,
+    MatButtonModule,
     MatCardModule,
     MatProgressSpinnerModule
 ];

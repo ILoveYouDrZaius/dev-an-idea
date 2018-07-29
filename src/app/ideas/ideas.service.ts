@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, map } from 'rxjs/operators';
 import { AngularFirestore } from 'angularfire2/firestore';
 
 
@@ -43,7 +43,7 @@ const IDEAS: Idea[] = [
 })
 export class IdeasService {
 
-  constructor(private db: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) {}
 
   getIdeas(): Observable<Idea[]> {
     return of(IDEAS).pipe(
@@ -52,7 +52,13 @@ export class IdeasService {
   }
 
   getIdeasF(): Observable<Idea[]> {
-    return this.db.collection<Idea>('ideas').valueChanges();
+    return this.afs.collection<Idea>('ideas').snapshotChanges().pipe(
+      map(actions => actions.map(a => {
+        const data = a.payload.doc.data() as Idea;
+        const id = a.payload.doc.id;
+        return { id, ...data } as Idea;
+      }))
+    );
   }
 
   getIdea(id: number): Observable<Idea> {
@@ -64,7 +70,7 @@ export class IdeasService {
   }
 
   getIdeaF(id: number): Observable<Idea> {
-    return this.db.doc<Idea>(`ideas/${id}`).valueChanges();
+    return this.afs.doc<Idea>(`ideas/${id}`).valueChanges();
   }
 
 }
