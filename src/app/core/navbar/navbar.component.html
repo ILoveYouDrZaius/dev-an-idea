@@ -6,7 +6,7 @@
     </a>
 
     <span class="spacer"></span>
-    
+    <p *ngIf="username"><small>Bienvenido, </small> {{ username }}</p>
     <button mat-icon-button color="accent" [routerLink]="['/login']">
       <mat-icon aria-label="Example icon-button with a heart icon">face</mat-icon>
     </button>
