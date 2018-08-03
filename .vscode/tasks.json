@@ -8,6 +8,12 @@
             "type": "shell",
             "command": "ng serve -o",
             "problemMatcher": []
+        },
+        {
+            "label": "Lanzar Karma",
+            "type": "shell",
+            "command": "ng test",
+            "problemMatcher": []
         }
     ]
 }

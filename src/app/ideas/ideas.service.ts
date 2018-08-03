@@ -43,7 +43,12 @@ const IDEAS: Idea[] = [
 })
 export class IdeasService {
 
-  constructor(private afs: AngularFirestore) {}
+  constructor(private afs: AngularFirestore) {
+    const firebase_settings = {
+      timestampsInSnapshots: true
+    };
+    this.afs.firestore.settings(firebase_settings);
+  }
 
   getIdeas(): Observable<Idea[]> {
     return of(IDEAS).pipe(
