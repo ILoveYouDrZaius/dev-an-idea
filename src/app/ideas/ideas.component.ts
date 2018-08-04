@@ -20,10 +20,6 @@ export class IdeasComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.ideasService.getIdeas().subscribe((ideas) => {
-    //   this.ideas = ideas;
-    //   this.toggleState();
-    // });
     let firstCharge = true;
     this.ideasService.getIdeasF().subscribe((ideas) => {
       this.ideas = ideas;
@@ -32,7 +28,6 @@ export class IdeasComponent implements OnInit {
         this.toggleState();
         firstCharge = false;
       }
-
     });
   }
 
