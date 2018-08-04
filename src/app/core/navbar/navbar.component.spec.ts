@@ -1,6 +1,12 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import { MaterialComponents } from '../../material-components.module';
+import { routes } from '../../app.routes';
+import { RouterTestingModule } from '@angular/router/testing';
+import { IdeasComponent } from '../../ideas/ideas.component';
+import { LoginComponent } from '../../login/login.component';
+import { NotFoundComponent } from '../not-found/not-found.component';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +14,18 @@ describe('NavbarComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      declarations: [
+        NavbarComponent,
+        IdeasComponent,
+        LoginComponent,
+        NotFoundComponent
+      ],
+      imports: [
+        MaterialComponents,
+        RouterTestingModule.withRoutes(
+          routes
+        )
+      ]
     })
     .compileComponents();
   }));
