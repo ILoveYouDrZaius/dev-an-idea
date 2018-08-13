@@ -1,0 +1,23 @@
+.navbar {
+    grid-area: header;
+}
+.dashboard {
+    grid-area: main;
+}
+.sidebar {
+    grid-area: sidebar;
+}
+.footer {
+    grid-area: footer;
+}
+
+.app-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: 
+        "header header header header"
+        "main main main ."
+        "footer footer footer footer";
+}
+  
